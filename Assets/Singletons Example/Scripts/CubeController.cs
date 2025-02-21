@@ -12,9 +12,6 @@ public class CubeController : MonoBehaviour
 
     public Control ControlSelection;
 
-    // Public reference to the music player
-    public MusicPlayer musicPlayer;
-
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("Grabber"))
@@ -22,13 +19,13 @@ public class CubeController : MonoBehaviour
             switch (ControlSelection)
             {
                 case Control.Play:
-                    musicPlayer.Play();
+                    MusicPlayer.Instance.Play();
                     break;
                 case Control.Pause:
-                    musicPlayer.Pause();
+                    MusicPlayer.Instance.Pause();
                     break;
                 case Control.Skip:
-                    musicPlayer.Skip();
+                    MusicPlayer.Instance.Skip();
                     break;
             }
         }
