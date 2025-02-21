@@ -2,6 +2,23 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
+    
+    #region Singleton Pattern
+    public static MusicPlayer Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    #endregion
+
     public AudioSource audioSource;
     // List of all the music clips
     public AudioClip[] audioClips;
